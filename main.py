@@ -37,14 +37,14 @@ while keep:
 
     # Detect collision with the walls
     if snake.head.xcor() > 288 or snake.head.xcor() < -288 or snake.head.ycor() > 288 or snake.head.ycor() < -288:
-        score.game_over()
-        keep = False
+        score.reset()
+        snake.reset()
 
     # Detect the collision with body
     for segment in snake.segments[1:]:  # This part of code segments[1:] e de la list and slices ->
         if snake.head.distance(segment) < 10:          # si incepe sa verifice de na indexul unu sarind peste index 0 ->
-            keep = False                                   # poti sa adaugi si punct final si peste scat sa sara [2:3:1]
-            score.game_over()
+            snake.reset()                                # poti sa adaugi si punct final si peste scat sa sara [2:3:1]
+            score.reset()
 
 
 screen.exitonclick()
